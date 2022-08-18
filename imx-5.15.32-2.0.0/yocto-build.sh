@@ -7,6 +7,12 @@
 
 #
 
+echo "Environment variables used:"
+echo "YOCTO_DIR:"$YOCTO_DIR
+echo "MACHINE:" $MACHINE
+echo "DISTRO:" $DISTRO
+
+
 mkdir -p ${YOCTO_DIR}
 cd ${YOCTO_DIR}
 
