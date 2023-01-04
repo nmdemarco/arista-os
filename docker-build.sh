@@ -1,19 +1,19 @@
 #!/bin/bash
-#
+
 # This script creates the yocto-ready docker image.
 # The --build-arg options are used to pass data about the current user.
-# Also, a tag is used for easy identification of the generated image.
+# Adds a tag to identify the resulting image.
 #
 
-# source the common variables
+# Source the common variables
 . ./env.sh
 
+# Show how it's used. The Bash wonk emphasizes the line.
 usage() {
     echo -e "\e[3m\nUsage: $0 [path_to_Dockerfile]\e[0m\n"
 }
 
 # main
-
 if [ $# -ne 1 ]
     then
         usage
