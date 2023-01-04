@@ -5,63 +5,6 @@ Prerequisites
 =============
 
 Install Docker
---------------
-
-There are various methods of installing [docker], i.e. by docker script:
-  ```{.sh}
-  $ curl -fsSL https://get.docker.com -o get-docker.sh
-  $ sudo sh get-docker.sh
-  ```
-
-Run docker without sudo
------------------------
-
-To work better with docker, without `sudo`, add your user to `docker group`.
-  ```{.sh}
-  $ sudo usermod -aG docker <your_user>
-  ```
-
-Log out and log back in so that your group membership is re-evaluated.
-
-Set docker to work with proxy
------------------------------
-
-Create a docker config file at `~/.docker/config.json` and enter the following:
-
-```{.sh}
-{
-"proxies":
-    {
-     "default":
-         {
-          "httpProxy":"http://proxy.example.com:80"
-         }
-    }
-}
-```
-Note: replace the 'example' proxy with your proxy info.
-
-Create docker service
----------------------
-  ```{.sh}
-  $ sudo mkdir -p /etc/systemd/system/docker.service.d
-  $ sudo vim /etc/systemd/system/docker.service.d/http-proxy.conf
-  ```
-
-add the following:
-
-```{.sh}
-[Service]
-Environment="HTTP_PROXY=http://proxy.example.com:80/"
-Environment="NO_PROXY=localhost,someservices.somecompany.com"
-```
-
-Restart Docker
-
-```{.sh}
-  $ sudo systemctl daemon-reload
-  $ sudo systemctl restart docker
-```
 
 Build i.MX with docker
 ======================

@@ -1,9 +1,16 @@
 #!/bin/bash
 
+# Requires a ./env.sh
 # This script creates the yocto-ready docker image.
 # The --build-arg options are used to pass data about the current user.
 # Adds a tag to identify the resulting image.
 #
+# Usage:
+#  $ ./docker-build.sh <dockerfile>
+#
+# Ex:
+#  $ ./docker-build.sh Dockerfile-Ubuntu-20.04
+
 
 # Source the common variables
 . ./env.sh
@@ -14,6 +21,9 @@ usage() {
 }
 
 # main
+# Any arguments passed?
+#
+# Build the Docker image.
 if [ $# -ne 1 ]
     then
         usage
